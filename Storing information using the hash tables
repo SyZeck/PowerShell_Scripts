@@ -1,0 +1,38 @@
+#Almacenamiento de Datos
+$Computadora = Read-Host Introduce el nombre de la Computadora
+$Usuario = Read-Host Introduce el nombre de Usuario 
+$Red = Read-Host Introduce el nombre de la red a la que pertenece
+
+#Libreria con los datos almacenados
+$InformacionPC = @("$Computadora","$Usuario","$Red")
+
+#Extra
+#Escrito con los datos almacenados usando condicionales
+$Respuesta = Read-Host -Prompt "¿Que dato desea ver? [1]Nombre de la Computadora [2]Nombre del Usuario [3]Nombre de la red a la que pertenece [4]Todos los datos"
+Switch ($Respuesta)
+{
+1
+{
+Write-Host $Computadora
+break
+}
+2
+{
+Write-Host $Usuario
+break
+}
+3
+{
+Write-Host $Red
+break
+}
+4
+{
+Write-Host $InformacionPC
+break
+}
+default
+{
+Write-Host "Opcion no valida"
+}
+}
