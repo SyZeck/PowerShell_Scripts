@@ -1,0 +1,20 @@
+#Arreglo con los meses del año
+$meses = @("Relleno","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre")
+
+#Almacenamiento de los datos de entrada
+$Entrada = Read-Host  "Ingresar Fecha"
+
+#Arreglo vacio que almacena una variable
+$Mes = @() 
+
+#Uso de la funcion Split para dividir el valor de entrada
+$Mes += $Entrada -Split "/" , 3
+
+#Bucle para verificar mes en meses y guardar el valor numerico en una variable
+foreach ($index in $meses) { 
+if ($Mes[1] -eq $index){
+$n = $meses.IndexOf($index)
+} } 
+
+#Uso del metodo Join en la clase string para unir la fecha 
+[string]::Join('',$Mes[0],"/0$n/",$Mes[2])
