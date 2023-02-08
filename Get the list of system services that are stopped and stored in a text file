@@ -1,0 +1,29 @@
+#Creacion de Archivo de texto para guardar las variables
+New-Item Resultado3.txt.txt
+
+#Variable con los servicios obtenidos y obtencion|seleccion de estatus y orden por detenidos
+$ServiciosDetenidos = Get-Service| Where-Object {$_.Status -eq "Stopped" } 
+
+#Escritura en el archivo de texto
+Add-Content -Path Resultado3.txt.txt $ServiciosDetenidos
+
+#Extra
+#Comprobacion de los datos dentro del txt
+$Respuesta = Read-Host -Prompt "¿Desea ver los servicios detenidos? [1]Si [2]No"
+Switch ($Respuesta)
+{
+1
+{
+Get-Content Resultado3.txt.txt
+break
+}
+2
+{
+Write-Host Entendido
+break
+}
+default
+{
+Write-Host "Opcion no valida"
+}
+}
