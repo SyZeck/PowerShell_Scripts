@@ -1,0 +1,8 @@
+#Variable que almacena el nombre de usuario
+$NombreUsuario = $env:UserName
+
+#Variable que almacena el nombre de usuario en formato txt
+$Archivotxt = "$NombreUsuario.txt"
+
+#Obtencion de puertos abiertos|Filtro de columnas|Orden en formato TCP|Exportacion de datos de en formato CSV hacai el archivo txt que se genera
+Get-NetTCPConnection -State Listen | Select-Object -Property LocalPort, State | Sort-Object LocalPort | Export-Csv -Path $Archivotxt -NoTypeInformation
